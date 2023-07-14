@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors!</title>
+</head>
+<body>
+    <script>
+        function playRound(playerSelection, computerSelection){
+            if (playerSelection === "Rock" && computerSelection === "Rock"){
+                return("Draw! No winner for this round");
+            }
+            else if (playerSelection === "Rock" && computerSelection === "Scissors"){
+                return("You Win! Rock beats Scissors");
+            }
+            else if (playerSelection === "Rock" && computerSelection === "Paper"){
+                return("You Lose! Paper beats Rock");
+            }
+            else if (playerSelection === "Scissors" && computerSelection === "Scissors"){
+                return("Draw! No winner for this round");
+            }
+            else if (playerSelection === "Scissors" && computerSelection === "Paper"){
+                return("You Win! Scissors beats Paper");
+            }
+            else if (playerSelection === "Scissors" && computerSelection === "Rock"){
+                return("You Lose! Rock beats Scissors");
+            }
+            else if (playerSelection === "Paper" && computerSelection === "Paper"){
+                return("Draw! No winner for this round");
+            }
+            else if (playerSelection === "Paper" && computerSelection === "Scissors"){
+                return("You Win! Paper beats Scissors");
+            }            
+            else if (playerSelection === "Paper" && computerSelection === "Rock"){
+                return("You Lose! Rock beats Paper");
+            } 
+            else {
+                return(`Invalid Input: ${initialPlayerMove}`);
+            }
+        }   
+
+        function playerSelection(){
+            initialPlayerMove = prompt("Your move: ");
+            playerMove = initialPlayerMove.toLowerCase();
+            firstChar = playerMove.charAt(0);
+            playerMove = firstChar.toUpperCase() + playerMove.slice(1);
+            console.log("Your Move: ", playerMove);
+            return playerMove;
+        }
+
+        function getComputerChoice(){
+            let arr = ["Rock", "Paper", "Scissors"];
+            computerMove = (arr[(Math.floor(Math.random() * arr.length))]);
+            console.log("Computer's Move:", computerMove);
+            return computerMove;
+        }
+
+        function game(){
+            rounds = parseInt(prompt("Please enter number of rounds: "))
+            let playerScore = 0
+            let computerScore = 0
+            for (let i = 1; i <= rounds; i++){
+                playerMove = playerSelection();
+                computerMove = getComputerChoice();
+                status = playRound(playerMove,computerMove);
+                console.log(status);
+                if (status.match("Win") !== null){
+                     playerScore++
+                     console.log("Player Score: ", playerScore)
+                } else if (status.match("Lose") !== null){
+                    computerScore++
+                    console.log("Computer Score: ", computerScore)
+                }
+            }
+            
+            console.log(`Score Status: \n
+                Player - ${playerScore} \n
+                Computer - ${computerScore}`)
+            if (computerScore < playerScore){
+                return("Player Wins!")
+            } else{
+                return("Computer Wins!")
+            }
+        }
+
+        console.log(game())
+    </script>
+</body>
+</html>
