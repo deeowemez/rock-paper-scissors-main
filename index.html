@@ -4,87 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script>
-        function playRound(playerSelection, computerSelection){
-            if (playerSelection === "Rock" && computerSelection === "Rock"){
-                return("Draw! No winner for this round");
-            }
-            else if (playerSelection === "Rock" && computerSelection === "Scissors"){
-                return("You Win! Rock beats Scissors");
-            }
-            else if (playerSelection === "Rock" && computerSelection === "Paper"){
-                return("You Lose! Paper beats Rock");
-            }
-            else if (playerSelection === "Scissors" && computerSelection === "Scissors"){
-                return("Draw! No winner for this round");
-            }
-            else if (playerSelection === "Scissors" && computerSelection === "Paper"){
-                return("You Win! Scissors beats Paper");
-            }
-            else if (playerSelection === "Scissors" && computerSelection === "Rock"){
-                return("You Lose! Rock beats Scissors");
-            }
-            else if (playerSelection === "Paper" && computerSelection === "Paper"){
-                return("Draw! No winner for this round");
-            }
-            else if (playerSelection === "Paper" && computerSelection === "Scissors"){
-                return("You Win! Paper beats Scissors");
-            }            
-            else if (playerSelection === "Paper" && computerSelection === "Rock"){
-                return("You Lose! Rock beats Paper");
-            } 
-            else {
-                return(`Invalid Input: ${initialPlayerMove}`);
-            }
-        }   
+    <div class="title">
+        <h1 class="rock">Rock</h1>
+        <h1 class="paper">Paper</h1>
+        <h1 class="scissors">Scissors!</h1>
+    </div>
+    <div class="content">
+        <div class="text">
+            <div class="left">
+                <p class="up" id="playMove">Player's Move: </p>
+                <p class="down" id="playerScoreCur">Player's Score: 0</p>    
+            </div>
+            <div class="right">
+                <p class="up" id="compMove">Computer's Move: </p>
+                <p class="down" id="computerScoreCur">Computer's Score: 0</p>
+            </div>
+        </div>
+        <div id="mid">| WINNER PER ROUND |</div>
+        <div class="rps-container">
+            <img id="Rock" src="./photos/rock.png" alt="rock.png">
+            <img id="Paper" src="./photos/paper.png" alt="paper.png">
+            <img id="Scissors" src="./photos/scissors.png" alt="scissors.png">
+        </div>
+        <p id="winner"></p>
+    </div>
 
-        function playerSelection(){
-            initialPlayerMove = prompt("Your move: ");
-            playerMove = initialPlayerMove.toLowerCase();
-            firstChar = playerMove.charAt(0);
-            playerMove = firstChar.toUpperCase() + playerMove.slice(1);
-            console.log("Your Move: ", playerMove);
-            return playerMove;
-        }
-
-        function getComputerChoice(){
-            let arr = ["Rock", "Paper", "Scissors"];
-            computerMove = (arr[(Math.floor(Math.random() * arr.length))]);
-            console.log("Computer's Move:", computerMove);
-            return computerMove;
-        }
-
-        function game(){
-            rounds = parseInt(prompt("Please enter number of rounds: "))
-            let playerScore = 0
-            let computerScore = 0
-            for (let i = 1; i <= rounds; i++){
-                playerMove = playerSelection();
-                computerMove = getComputerChoice();
-                status = playRound(playerMove,computerMove);
-                console.log(status);
-                if (status.match("Win") !== null){
-                     playerScore++
-                     console.log("Player Score: ", playerScore)
-                } else if (status.match("Lose") !== null){
-                    computerScore++
-                    console.log("Computer Score: ", computerScore)
-                }
-            }
-            
-            console.log(`Score Status: \n
-                Player - ${playerScore} \n
-                Computer - ${computerScore}`)
-            if (computerScore < playerScore){
-                return("Player Wins!")
-            } else{
-                return("Computer Wins!")
-            }
-        }
-
-        console.log(game())
-    </script>
+<script src="script.js"></script>
 </body>
 </html>

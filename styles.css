@@ -1,0 +1,93 @@
+body{
+    height: 100vh;
+    background: white;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    background-color: rgb(227,178,97);
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    letter-spacing: 10px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(61, 61, 61);
+    font-size: 30px;
+    max-height: 100px;
+    gap: 10px;
+}
+
+.title .scissors{
+    color: #00CAE5;
+}
+
+.title .rock{
+    color: rgb(237,52,147);
+}
+
+.title .paper{
+    color: #F9C900;
+}
+
+
+.rps-container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+}
+
+img{
+    width: 200px;
+    height: auto;
+}
+
+.text{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.up{
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: rgb(50,50,50);
+}
+
+.down{
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    color: rgb(102,102,102);
+}
+
+.left .down,
+.right .down{
+    margin-top: -20px;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    color: rgb(227,178,97);
+    font-weight: 900;
+}
